@@ -1,4 +1,4 @@
-@import-normalize; /* bring in normalize.css styles */
+/*@import-normalize; /* bring in normalize.css styles */
 
 body {
   margin: 0;
@@ -42,7 +42,7 @@ img {
 a {
   text-decoration: none;
 }
-div {
+ #root {
   width: 780px;
   background: linear-gradient(to bottom right, #4b484b, #7d7b7de9, #4f575c);
     border-radius: 6px;
