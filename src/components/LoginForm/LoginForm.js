@@ -3,8 +3,7 @@ import { nanoid } from 'nanoid';
 import css from '../ContactForm/ContactForm.module.css'
 import { useDispatch } from "react-redux"; 
 import authOperetions from 'redux/auth/operations';
-//import { useNavigate } from 'react-redux';
-import Button from '@mui/material/Button';
+import { IconButton } from '@mui/material';
 
 
 
@@ -30,7 +29,6 @@ export default function LoginForm() {
         event.preventDefault();
         dispatch(authOperetions.logIn({ email, password }));
         reset();
-        //navigate('/contacts');
     };
     const reset = () => {
         setEmail('')
@@ -68,11 +66,10 @@ export default function LoginForm() {
                     onChange={hendleInputChange}>
                 </input>
             </label>
-            <Button
+            <IconButton
                 type="submit"
-                variant="contained"
-                disableElevation
-            >Login</Button>
+                
+            >Login</IconButton>
         </form>
     ); 
 
