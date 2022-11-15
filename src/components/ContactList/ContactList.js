@@ -13,7 +13,7 @@ const ContactList = () => {
     const filter = useSelector(state => state.filter);
     const isLoading = useSelector(state => state.contacts.isLoading);
    
-    const onDeleteContact = id => dispatch(deleteContact(id) && toast(`Contact delete successfully`));
+    const onDeleteContact = id => dispatch(deleteContact(id));
     
     
   
@@ -38,7 +38,7 @@ const ContactList = () => {
             return (<li key={id}  className={css.contactListItem}>
                 <p className={css.contactListEl}><span className={css.contactListSpan}>Name:</span> {name}</p>
                 <p className={css.contactListEl}> <span className={css.contactListSpan}>Number:</span> {number}</p>
-                <button className={css.contactListDelBtn} onClick={() => onDeleteContact( id )}  type="button">Remove</button>
+                <button className={css.contactListDelBtn} onClick={() => onDeleteContact( id ) &&  toast(`Contact delete successfully`)}  type="button">Remove</button>
             </li>)
         }
             
