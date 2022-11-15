@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,  } from 'react';
 import { nanoid } from 'nanoid';
 import css from '../ContactForm/ContactForm.module.css'
 import { useDispatch } from "react-redux"; 
 import { addContact } from 'redux/contacts/operations';
 import { useSelector } from 'react-redux';
-
+import { toast} from 'react-toastify';
 
 export default function ContactForm() {
 
@@ -34,15 +34,18 @@ export default function ContactForm() {
     contacts.find(
       contact => name.toLowerCase() === contact.name.toLowerCase()
     )
-      ? alert(`${name} is already in contacts.`) :
-      dispatch(addContact({ name, number })) && reset();
+      ? toast(`${name} is already in contacts.`) :
+      dispatch(addContact({ name, number }))
+      && toast(`Contact ${name} added successfully`)
+      && reset();
     }
 
     const reset = () => {
       setName('')
       setNumber ('')
           
-  }
+    }
+ 
   
     const inputNameId = nanoid();
     const inputTelId = nanoid();
@@ -78,7 +81,8 @@ export default function ContactForm() {
             onChange={hendleInputChange}>
           </input>
         </label>
-        <button className={css.contactFormBtn } type="submit">Add contact</button>
+            <button className={css.contactFormBtn} type="submit">Add contact</button>
+            
       </form>
         );
     }

@@ -1,9 +1,10 @@
 import React from 'react';
 import css from '../ContactList/ContactList.module.css'
 import { useDispatch, useSelector } from "react-redux"; 
-import { deleteContact } from 'redux/contacts/operations';
+import { deleteContact, fetchContacts } from 'redux/contacts/operations';
 import Loader from 'components/Loader/Loader';
-
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 
 const ContactList = () => {
@@ -12,7 +13,8 @@ const ContactList = () => {
     const filter = useSelector(state => state.filter);
     const isLoading = useSelector(state => state.contacts.isLoading);
    
-    const onDeleteContact = id => dispatch(deleteContact(id));
+    const onDeleteContact = id => dispatch(deleteContact(id) && toast(`Contact delete successfully`));
+    
     
   
 
@@ -24,6 +26,11 @@ const ContactList = () => {
         return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
         
     };
+
+    useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
     
     return (
        
