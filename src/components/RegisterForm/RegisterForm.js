@@ -43,12 +43,13 @@ export default function RegisterForm() {
   }
   
     const inputNameId = nanoid();
-    const inputTelId = nanoid();
+    const inputPasswordId = nanoid();
+    const inputEmailId = nanoid();
   
 
     return (
-        <Form onSubmit={handleSubmit} htmlFor={inputTelId}>
-            <Label htmlFor={inputNameId} >
+        <Form onSubmit={handleSubmit} >
+            <Label >
                 Name
                 <Input
                     id={inputNameId}
@@ -61,10 +62,10 @@ export default function RegisterForm() {
                     onChange={hendleInputChange}>
                 </Input>
             </Label>
-            <Label htmlFor={inputTelId}>
+            <Label >
                 Email
                 <Input
-                    id={inputTelId}
+                    id={inputEmailId}
                     type="email"
                     name="email"
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -73,10 +74,10 @@ export default function RegisterForm() {
                     onChange={hendleInputChange}>
                 </Input>
             </Label>
-            <Label htmlFor={inputTelId} >
+            <Label>
                 Password
                 <Input
-                    id={inputTelId}
+                    id={inputPasswordId}
                     type="password"
                     name="password"
                     pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"

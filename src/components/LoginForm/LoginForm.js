@@ -36,7 +36,7 @@ export default function LoginForm() {
     
     return (
         <Form onSubmit={handleSubmit}>
-            <Label htmlFor={inputNameId}>
+            <Label >
                 Email
                 <Input
                     id={inputNameId}
@@ -48,7 +48,7 @@ export default function LoginForm() {
                     onChange={hendleInputChange}>
                 </Input>
             </Label>
-            <Label htmlFor={inputTelId}>
+            <Label >
                 Password
                 <Input
                     id={inputTelId}
