@@ -1,11 +1,11 @@
 import { ColorRing } from 'react-loader-spinner';
-import css from './Loader.module.css'
+import { LoaderBox } from './Loader.styled';
 
 const Loader = () => {
     return (
-        <div className={css.loaderBox}>
+        <LoaderBox >
             <ColorRing />
-        </div>
+        </LoaderBox>
   );
 };
 

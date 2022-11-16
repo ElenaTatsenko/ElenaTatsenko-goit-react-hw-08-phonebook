@@ -1,16 +1,18 @@
 import React, { useState,  } from 'react';
 import { nanoid } from 'nanoid';
-import css from '../ContactForm/ContactForm.module.css'
 import { useDispatch } from "react-redux"; 
 import { addContact } from 'redux/contacts/operations';
 import { useSelector } from 'react-redux';
-import { toast} from 'react-toastify';
+import { toast } from 'react-toastify';
+import { Form, Input, Label } from 'components/Form.styled';
+import { selectContactItems } from 'redux/contacts/selectors';
+import { Button } from 'Btn.styled';
 
 export default function ContactForm() {
 
   const dispatch = useDispatch();
   
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(selectContactItems);
 
   const [name, setName] = useState('')
   const [number, setNumber] = useState('')
@@ -52,11 +54,10 @@ export default function ContactForm() {
   
 
         return (
-     <form className={css.conactForm} onSubmit={handleSubmit}>
-        <label htmlFor={inputNameId} className={css.conactFormLabel}>
+     <Form onSubmit={handleSubmit}>
+        <Label htmlFor={inputNameId} >
             Name
-          <input
-            className={css.conactFormItem}
+          <Input
             id={inputNameId}
             type="text"
             name="name"
@@ -65,12 +66,11 @@ export default function ContactForm() {
             required
             value={name}
             onChange={hendleInputChange}>
-          </input>
-        </label>
-        <label htmlFor={inputTelId} className={css.conactFormLabel}>
+          </Input>
+        </Label>
+        <Label htmlFor={inputTelId}>
             Number
-          <input
-            className={css.conactFormItem}
+          <Input
             id={inputTelId}
             type="tel"
             name="number"
@@ -79,11 +79,11 @@ export default function ContactForm() {
             required
             value={number}
             onChange={hendleInputChange}>
-          </input>
-        </label>
-            <button className={css.contactFormBtn} type="submit">Add contact</button>
+          </Input>
+        </Label>
+            <Button variant="text" type="submit" >Add contact</Button>
             
-      </form>
+      </Form>
         );
     }
 

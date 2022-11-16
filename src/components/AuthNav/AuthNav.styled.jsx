@@ -5,4 +5,8 @@ export const AuthNavItem = styled(NavLink)`
     font-size: 20px;
     padding: 10px;
     color:#000000;
+    &:hover,
+    &:focus {
+        font-weight: 700;
+  }
 `;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
-import css from '../ContactForm/ContactForm.module.css'
 import { useDispatch } from "react-redux"; 
-import {register} from 'redux/auth/operations';;
-
+import {register} from 'redux/auth/operations';
+import { Form, Input, Label } from 'components/Form.styled';
+import { Button } from 'Btn.styled';
 
 export default function RegisterForm() {
     
@@ -47,11 +47,10 @@ export default function RegisterForm() {
   
 
     return (
-        <form className={css.conactForm} onSubmit={handleSubmit}>
-            <label htmlFor={inputNameId} className={css.conactFormLabel}>
+        <Form onSubmit={handleSubmit} htmlFor={inputTelId}>
+            <Label htmlFor={inputNameId} >
                 Name
-                <input
-                    className={css.conactFormItem}
+                <Input
                     id={inputNameId}
                     type="text"
                     name="name"
@@ -60,12 +59,11 @@ export default function RegisterForm() {
                     required
                     value={name}
                     onChange={hendleInputChange}>
-                </input>
-            </label>
-            <label htmlFor={inputTelId} className={css.conactFormLabel}>
+                </Input>
+            </Label>
+            <Label htmlFor={inputTelId}>
                 Email
-                <input
-                    className={css.conactFormItem}
+                <Input
                     id={inputTelId}
                     type="email"
                     name="email"
@@ -73,12 +71,11 @@ export default function RegisterForm() {
                     required
                     value={email}
                     onChange={hendleInputChange}>
-                </input>
-            </label>
-            <label htmlFor={inputTelId} className={css.conactFormLabel}>
+                </Input>
+            </Label>
+            <Label htmlFor={inputTelId} >
                 Password
-                <input
-                    className={css.conactFormItem}
+                <Input
                     id={inputTelId}
                     type="password"
                     name="password"
@@ -86,9 +83,9 @@ export default function RegisterForm() {
                     required
                     value={password}
                     onChange={hendleInputChange}>
-                </input>
-            </label>
-        <button className={css.contactFormBtn } type="submit">Register</button>
-      </form>
+                </Input>
+            </Label>
+        <Button  type="submit">Register</Button>
+      </Form>
         );
     }

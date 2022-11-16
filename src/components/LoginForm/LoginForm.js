@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
-import css from '../ContactForm/ContactForm.module.css'
 import { useDispatch } from "react-redux"; 
 import authOperetions from 'redux/auth/operations';
-import { IconButton } from '@mui/material';
-
+import { Form, Input, Label } from 'components/Form.styled';
+import { Button } from 'Btn.styled';
 
 
 export default function LoginForm() {
@@ -28,22 +27,18 @@ export default function LoginForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch(authOperetions.logIn({ email, password }));
-        reset();
+        
     };
-    const reset = () => {
-        setEmail('')
-        setPassword('')
-    }
+    
   
     const inputNameId = nanoid();
     const inputTelId = nanoid();
     
     return (
-        <form className={css.conactForm} onSubmit={handleSubmit}>
-            <label htmlFor={inputNameId} className={css.conactFormLabel}>
+        <Form onSubmit={handleSubmit}>
+            <Label htmlFor={inputNameId}>
                 Email
-                <input
-                    className={css.conactFormItem}
+                <Input
                     id={inputNameId}
                     type="email"
                     name="email"
@@ -51,12 +46,11 @@ export default function LoginForm() {
                     required
                     value={email}
                     onChange={hendleInputChange}>
-                </input>
-            </label>
-            <label htmlFor={inputTelId} className={css.conactFormLabel}>
+                </Input>
+            </Label>
+            <Label htmlFor={inputTelId}>
                 Password
-                <input
-                    className={css.conactFormItem}
+                <Input
                     id={inputTelId}
                     type="password"
                     name="password"
@@ -64,13 +58,13 @@ export default function LoginForm() {
                     required
                     value={password}
                     onChange={hendleInputChange}>
-                </input>
-            </label>
-            <IconButton
+                </Input>
+            </Label>
+            <Button 
                 type="submit"
                 
-            >Login</IconButton>
-        </form>
+            >Login</Button>
+        </Form>
     ); 
 
 };

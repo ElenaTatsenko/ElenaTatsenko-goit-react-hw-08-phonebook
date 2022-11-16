@@ -1,17 +1,17 @@
 import React from 'react';
-import css from '../ContactList/ContactList.module.css'
 import { useDispatch, useSelector } from "react-redux"; 
 import { deleteContact, fetchContacts } from 'redux/contacts/operations';
 import Loader from 'components/Loader/Loader';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
-
+import { List, ListItem, ListEl, ListSpan, ListItemBtn } from './ContactList.styled';
+import { selectContactItems, selectFilter, selectContactsIsLoading } from 'redux/contacts/selectors';
 
 const ContactList = () => {
     const dispatch = useDispatch();
-    const contacts = useSelector(state => state.contacts.items);
-    const filter = useSelector(state => state.filter);
-    const isLoading = useSelector(state => state.contacts.isLoading);
+    const contacts = useSelector(selectContactItems);
+    const filter = useSelector(selectFilter);
+    const isLoading = useSelector(selectContactsIsLoading);
    
     const onDeleteContact = id => dispatch(deleteContact(id));
     
@@ -34,17 +34,17 @@ const ContactList = () => {
     
     return (
        
-        <ul className={css.contactList}> {isLoading && <Loader />}{getFilterContacts().map(({ name, number, id }) => {
-            return (<li key={id}  className={css.contactListItem}>
-                <p className={css.contactListEl}><span className={css.contactListSpan}>Name:</span> {name}</p>
-                <p className={css.contactListEl}> <span className={css.contactListSpan}>Number:</span> {number}</p>
-                <button className={css.contactListDelBtn} onClick={() => onDeleteContact( id ) &&  toast(`Contact delete successfully`)}  type="button">Remove</button>
-            </li>)
+        <List> {isLoading && <Loader />}{getFilterContacts().map(({ name, number, id }) => {
+            return (<ListItem key={id}  >
+                <ListEl><ListSpan>Name:</ListSpan> {name}</ListEl>
+                <ListEl> <ListSpan>Number:</ListSpan> {number}</ListEl>
+                <ListItemBtn onClick={() => onDeleteContact( id ) &&  toast(`Contact delete successfully`)}  type="button">Remove</ListItemBtn>
+            </ListItem>)
         }
             
         
         )}
-        </ul>);
+        </List>);
 };
         
 

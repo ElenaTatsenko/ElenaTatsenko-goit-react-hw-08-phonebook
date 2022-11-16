@@ -1,4 +1,4 @@
-/*@import-normalize; /* bring in normalize.css styles */
+/*@import-normalize;  /*bring in normalize.css styles */
 
 body {
   margin: 0;
@@ -12,56 +12,6 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    border: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  text-align: center;
-}
-
-ul,
-ol {
-  list-style: none;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-left: 0px;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  
-}
-
-a {
-  text-decoration: none;
-}
- #root {
-  width: 1200px;
-  background: linear-gradient(to bottom right, #4b484b, #7d7b7de9, #4f575c);
-    border-radius: 6px;
-    padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.button {
-  display: block;
-  font-size: 15px;
-  width: 200px;
-  height: 40px;
-  border-radius: 6px;
-  background: linear-gradient(#302f32, #91e6f7e9, #302f32);
-  text-transform: uppercase;
-  cursor: pointer;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 25px;
- 
-}
