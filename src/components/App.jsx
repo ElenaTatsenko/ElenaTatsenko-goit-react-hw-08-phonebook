@@ -31,7 +31,7 @@ export default function App() {
                <Route path="/register" element={<PublicRoute restricted><RegisterPage/></PublicRoute>}></Route>
                <Route path="/login" element={<PublicRoute restricted><LoginPage /></PublicRoute>}></Route>
                <Route path="/contacts" element={<PrivateRoute ><ContactsPage /></PrivateRoute>}></Route>
-               <Route path="*" element={<PublicRoute></PublicRoute>}></Route>
+               <Route path="*" element={<PublicRoute><HomePage/></PublicRoute>}></Route>
              </Route>
            </Routes>
          )}

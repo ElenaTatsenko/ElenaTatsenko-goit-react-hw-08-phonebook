@@ -42,7 +42,6 @@ export default function LoginForm() {
                     id={inputNameId}
                     type="email"
                     name="email"
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                     required
                     value={email}
                     onChange={hendleInputChange}>
@@ -54,7 +53,6 @@ export default function LoginForm() {
                     id={inputTelId}
                     type="password"
                     name="password"
-                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
                     required
                     value={password}
                     onChange={hendleInputChange}>
