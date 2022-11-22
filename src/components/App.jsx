@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import {  lazy, Suspense, useEffect } from 'react';
 import Loader from './Loader';
 import {PrivateRoute} from '../routers/PrivateRoute';
@@ -31,7 +31,7 @@ export default function App() {
                <Route path="/register" element={<PublicRoute restricted><RegisterPage/></PublicRoute>}></Route>
                <Route path="/login" element={<PublicRoute restricted><LoginPage /></PublicRoute>}></Route>
                <Route path="/contacts" element={<PrivateRoute ><ContactsPage /></PrivateRoute>}></Route>
-               <Route path="*" element={<PublicRoute><HomePage/></PublicRoute>}></Route>
+               <Route path="*" element={<Navigate to="/" />}></Route>
              </Route>
            </Routes>
          )}

@@ -32,15 +32,10 @@ export default function RegisterForm() {
     event.preventDefault();
     
     dispatch(register({ name, email, password }));
-        reset();
+       
     }
-
-    const reset = () => {
-        setName('')
-        setEmail('')
-        setPassword('')
           
-  }
+  
   
     const inputNameId = nanoid();
     const inputPasswordId = nanoid();
